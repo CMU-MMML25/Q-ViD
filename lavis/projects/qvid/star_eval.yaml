@@ -5,9 +5,9 @@
 
 model:
   arch: blip2_t5_instruct
-  model_type: flant5xxl
+  model_type: flant5xl
   load_finetuned: True
-  finetuned: "Q-ViD/qvid_checkpoints/instruct_blip_flanxxl_trimmed.pth"
+  finetuned: "Q-ViD/qvid_checkpoints/instruct_blip_flanxl_trimmed.pth"
   use_grad_checkpoint: False
   freeze_vit: True
   frame_num: 8
@@ -40,7 +40,7 @@ run:
   weight_decay: 0.05
   max_epoch: 5
   batch_size_train: 32
-  batch_size_eval: 32
+  batch_size_eval: 2
   num_workers: 8
   accum_grad_iters: 1
 
@@ -54,7 +54,7 @@ run:
   amp: True
   resume_ckpt_path: null
 
-  evaluate: False
+  evaluate: True
   train_splits: ["train"]
   valid_splits: ["val"]
   test_splits: ["val"]

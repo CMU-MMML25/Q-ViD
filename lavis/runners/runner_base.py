@@ -460,6 +460,7 @@ class RunnerBase:
 
         # TODO In validation, you need to compute loss as well as metrics
         # TODO consider moving to model.before_evaluation()
+        torch.cuda.empty_cache()
         model = self.unwrap_dist_model(self.model)
         if not skip_reload and cur_epoch == "best":
             model = self._reload_best_model(model)
